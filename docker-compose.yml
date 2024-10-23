@@ -1,6 +1,4 @@
 ---
-version: "3.3"
-
 services:
   model:
     image: model
@@ -8,9 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "2607:2607"
+      - "7026:7026"
     volumes:
       - ./main.py:/main.py
     environment:
       - MODEL_PATH=main.py
-      - MODEL_PORT=2607
+      - MODEL_PORT=7026

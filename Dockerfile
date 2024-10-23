@@ -11,5 +11,5 @@ WORKDIR /app
 ADD main.py main.py
 ADD regression.joblib regression.joblib
 
-CMD ["fastapi", "dev", "main.py", "--port=2607", "--host=0.0.0.0"]
+CMD ["fastapi", "dev", "main.py", "--port=7026", "--host=0.0.0.0"]
 
