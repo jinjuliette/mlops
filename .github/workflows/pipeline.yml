@@ -1,8 +1,6 @@
 name: Publish Docker image
 
-on:
-  release:
-    types: [published]
+on: [push]
 
 jobs:
   push_to_registry:
@@ -33,15 +31,16 @@ jobs:
           tags: jinjuliette/mlops:0
 
       - name: Connecting to Cetinsoy's server
-        uses: actions/ssh-action@v1.1.0
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             echo "Connected to Cetinsoy's server"
-            mkdir jinjuliette
+            mkdir -p jinjuliette
             cd jinjuliette
             docker pull jinjuliette/mlops:0
             docker run -d -p 7026:7026 jinjuliette/mlops:0
             echo "Docker container is running"
+            echo "🎉🎉🎉🎉🎉"
