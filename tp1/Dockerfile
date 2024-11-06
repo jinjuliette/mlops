@@ -8,8 +8,8 @@ RUN pip install -r requirements.txt
 
 WORKDIR /app
 
-ADD main.py main.py
-ADD regression.joblib regression.joblib
+ADD tp1/main.py main.py
+ADD tp1/regression.joblib regression.joblib
 
 CMD ["fastapi", "dev", "main.py", "--port=7026", "--host=0.0.0.0"]
 
